@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+/* Configuração do Tailwind v4 direto no CSS */
+@theme {
+  --color-brand-yellow: #FFB800;
+  --color-brand-yellow-hover: #E5A600;
+  --color-brand-dark: #050505;
+  --color-brand-card: #121212;
+  --color-brand-border: rgba(255, 255, 255, 0.1);
+  
+  --color-text-main: #FFFFFF;
+  --color-text-muted: #A3A3A3;
+  
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  
+  --animate-pulse-green: pulse-green 2s infinite;
+  
+  @keyframes pulse-green {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-brand-dark text-text-main font-sans leading-relaxed overflow-x-hidden antialiased;
+    /* O TCHAM: Textura de grade sutil estilo garagem/tech */
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-attachment: fixed;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-extrabold tracking-tight text-white;
+  }
+}
+
+@layer components {
+  /* Utilitários de Layout */
+  .container-custom {
+    @apply max-w-[1240px] mx-auto px-6 w-full;
+  }
+  .section-padding {
+    @apply py-24;
+  }
+  
+  /* Títulos */
+  .section-title {
+    @apply text-[clamp(2rem,4vw,3rem)] text-center mb-4 leading-tight;
+  }
+  .section-subtitle {
+    @apply text-center text-text-muted max-w-[600px] mx-auto mb-16 text-lg;
+  }
+  .highlight {
+    @apply text-brand-yellow;
+  }
+
+  /* Botões Globais - ESTILO NERVOSO / RACING */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2.5 bg-brand-yellow text-black font-black py-4 px-8 rounded-none text-base uppercase tracking-widest transition-all shadow-[4px_4px_0px_rgba(255,255,255,0.1)] hover:bg-brand-yellow-hover hover:translate-x-1 hover:-translate-y-1 hover:shadow-[6px_6px_0px_rgba(255,255,255,0.2)] border-none cursor-pointer;
+  }
+  
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2.5 bg-transparent border-2 border-brand-border text-white py-4 px-8 rounded-none font-bold uppercase tracking-widest transition-all hover:border-brand-yellow hover:text-brand-yellow;
+  }
+}
+
+@layer utilities {
+  /* Força a aceleração de hardware para parar de travar */
+  .gpu-accelerated {
+    transform: translateZ(0);
+    will-change: transform, opacity;
+  }
+}
