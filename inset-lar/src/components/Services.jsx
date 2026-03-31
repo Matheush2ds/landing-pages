@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ArrowUpRight, X } from '@phosphor-icons/react';
+import { ArrowRight, X } from '@phosphor-icons/react';
 
 import imgDedetizacao from '../assets/serviços/dedetizando.webp';
 import imgDesentupimento from '../assets/serviços/desentupimento.webp';
@@ -31,68 +31,55 @@ export default function Services() {
   ];
 
   return (
-    <section id="servicos" className="py-[80px] md:py-[140px] bg-[#f4f4f5] relative overflow-hidden">
+    <section id="servicos" className="py-[80px] md:py-[140px] bg-white relative overflow-hidden">
       <div className="max-w-[1280px] mx-auto px-6">
         
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12 md:mb-16 gap-4 md:gap-6 fade-in-up">
-          <div className="max-w-2xl">
-            <span className="text-[#FF7600] font-black tracking-[0.2em] uppercase text-xs md:text-sm mb-3 md:mb-4 block">
-              Operações
-            </span>
-            <h2 className="text-[2.5rem] md:text-[4.5rem] font-black leading-[0.9] uppercase tracking-tighter text-black">
-              Nosso <br className="hidden md:block"/> Arsenal
-            </h2>
-          </div>
-          <p className="text-[1rem] md:text-lg text-gray-600 font-medium max-w-sm pb-2">
-            Equipamentos de ponta e equipe tática para qualquer nível de infestação ou obstrução.
+        <div className="text-center mb-12 md:mb-16 fade-in-up">
+          <h2 className="text-[2.2rem] md:text-[3.5rem] font-extrabold text-[#143F2E] mb-4">
+            Nossos Equipamentos & Serviços
+          </h2>
+          <p className="text-[1rem] md:text-[1.1rem] text-gray-600 max-w-2xl mx-auto font-medium">
+            Utilizamos tecnologia limpa, segura e de alta performance para resolver seu problema de forma definitiva. Equipamentos de ponta para qualquer nível de infestação ou obstrução.
           </p>
         </div>
 
-        {/* GRID ESTILO BENTO / DARK UI COM ANIMAÇÃO */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {servicesData.map((service, index) => (
             <article 
               key={index} 
               onClick={() => setSelectedImage(service.img)}
-              className={`fade-in-up delay-${(index % 4) * 100} group relative bg-[#111] overflow-hidden cursor-pointer h-[280px] md:h-[320px] flex flex-col justify-end p-5 md:p-6 rounded-xl border border-transparent hover:border-[#00A859]/30 transition-colors duration-500`}
+              className="fade-in-up group bg-[#f8fafc] rounded-[20px] p-5 flex flex-col items-start border border-gray-100 hover:shadow-[0_15px_30px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 cursor-pointer"
             >
-              {/* Imagem de Fundo Escurecida */}
-              <div className="absolute inset-0 z-0">
+              <div className="w-full h-[180px] rounded-xl overflow-hidden mb-5 bg-gray-200">
                 <img 
                   src={service.img} 
                   alt={service.title} 
-                  className="w-full h-full object-cover opacity-60 md:opacity-40 group-hover:opacity-70 group-hover:scale-110 transition-all duration-700" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent md:via-black/80"></div>
               </div>
               
-              {/* Conteúdo do Card - Textos visíveis no mobile, ocultos no desktop */}
-              <div className="relative z-10 translate-y-0 md:translate-y-4 md:group-hover:translate-y-0 transition-transform duration-500">
-                <div className="flex justify-between items-center mb-2 md:mb-3">
-                  <h3 className="text-white font-black text-lg md:text-xl uppercase tracking-tight">
-                    {service.title}
-                  </h3>
-                  <div className="w-8 h-8 bg-[#00A859] rounded-full flex items-center justify-center opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 shrink-0">
-                    <ArrowUpRight size={18} weight="bold" className="text-white" />
-                  </div>
-                </div>
-                {/* Aqui a mágica do mobile: opacity-100 no mobile, e opacity-0 no md */}
-                <p className="text-gray-300 md:text-gray-400 text-[0.85rem] md:text-sm leading-relaxed opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                  {service.text}
-                </p>
+              <h3 className="text-[#143F2E] font-bold text-[1.15rem] mb-2 leading-tight">
+                {service.title}
+              </h3>
+              
+              <p className="text-gray-500 text-[0.9rem] leading-relaxed mb-4 flex-grow">
+                {service.text}
+              </p>
+              
+              <div className="mt-auto text-[#00A859] font-bold text-[0.9rem] flex items-center gap-1 group-hover:gap-2 transition-all">
+                Ver Operação <ArrowRight size={16} weight="bold" />
               </div>
             </article>
           ))}
         </div>
 
-        {/* Modal Imagem em Destaque */}
         {selectedImage && (
-          <div className="fixed inset-0 bg-black/95 flex items-center justify-center z-[9999] p-4 md:p-6 backdrop-blur-sm" onClick={() => setSelectedImage(null)}>
+          <div className="fixed inset-0 bg-[#0B3220]/95 flex items-center justify-center z-[9999] p-4 md:p-6 backdrop-blur-sm" onClick={() => setSelectedImage(null)}>
             <div className="relative max-w-5xl w-full" onClick={(e) => e.stopPropagation()}>
-              <button onClick={() => setSelectedImage(null)} className="absolute -top-10 right-0 md:-top-12 text-white hover:text-[#FF7600] transition-colors">
+              <button onClick={() => setSelectedImage(null)} className="absolute -top-10 right-0 md:-top-12 text-white hover:text-[#00A859] transition-colors">
                 <X size={32} md:size={40} />
               </button>
-              <img src={selectedImage} alt="Operação Inset Lar" className="w-full h-auto border-4 border-white/10 rounded-lg shadow-2xl" />
+              <img src={selectedImage} alt="Operação Inset Lar" className="w-full h-auto rounded-xl shadow-2xl" />
             </div>
           </div>
         )}

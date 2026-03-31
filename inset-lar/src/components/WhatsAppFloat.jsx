@@ -48,7 +48,7 @@ export default function WhatsAppFloat() {
               <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white rounded-full"></span>
             </div>
             <div>
-              <h4 className="text-white font-bold text-[1rem] leading-tight">Central Inset Lar</h4>
+              <h4 className="text-white font-bold text-[1rem] leading-tight">Saiba onde estamos</h4>
               <p className="text-white/90 text-[0.8rem] m-0 flex items-center gap-1">
                 Equipe Online <span className="animate-pulse">●</span>
               </p>

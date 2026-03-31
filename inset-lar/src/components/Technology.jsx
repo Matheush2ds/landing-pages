@@ -12,10 +12,6 @@ export default function Technology() {
           
           {/* LADO ESQUERDO: TEXTOS */}
           <div className="max-w-xl fade-in-up">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FF7600]/10 border border-[#FF7600]/20 text-[#FF7600] text-[0.85rem] font-extrabold tracking-[2px] uppercase mb-6 shadow-sm">
-              <Flask size={20} weight="duotone" />
-              Quimica Aplicada
-            </div>
             
             <h2 className="text-[2.5rem] md:text-[4rem] font-black text-[#111] leading-[0.9] mb-6 tracking-tighter uppercase">
               Tecnologia de
